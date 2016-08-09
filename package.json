@@ -1,0 +1,26 @@
+{
+  "name": "turbo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "test": "node ./tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krambuhl/turbo.git"
+  },
+  "author": "Evan Krambuhl <thekrambuhl@gmail.com> (http://stumptownbear.com/)",
+  "license": "MIT",
+  "homepage": "https://github.com/krambuhl/turbo#readme",
+  "bugs": {
+    "url": "https://github.com/krambuhl/turbo/issues"
+  },
+  "devDependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "handlebars": "^4.0.5",
+    "rimraf": "^2.5.4",
+    "through2": "^2.0.1"
+  }
+}
