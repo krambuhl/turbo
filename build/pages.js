@@ -1,10 +1,21 @@
 const gulp = require('gulp');
 const path = require('path');
 const Handlebars = require('handlebars');
-const through = require('through2');
 
-Handlebars.registerHelper(require('turbo-components/dist/helpers'));
-Handlebars.registerPartial(require('turbo-components/dist/templates'));
+const through = require('through2');
+const helpers = require('turbo-components/dist/helpers');
+const templates = require('turbo-components/dist/templates');
+
+Handlebars.registerPartial(templates);
+
+Object.keys(helpers).forEach(name => {
+  const helper = helpers[name];
+  if (helper.register) {
+    helper.register(Handlebars);
+  } else {
+    Handlebars.registerHelper(name, helper);
+  }
+});
 
 const {
   paths,
