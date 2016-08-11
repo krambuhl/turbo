@@ -5,13 +5,15 @@ const paths = {
     lib: 'source/lib',
     helpers: 'source/helpers',
     components: 'source/components',
-    pages: 'source/pages'
+    pages: 'source/pages',
+    assets: 'source/assets'
   },
   dest: {
     root: 'dist',
     lib: 'dist/lib',
     helpers: 'dist/helpers',
-    components: 'dist/components'
+    components: 'dist/components',
+    assets: 'dist/assets'
   }
 };
 
