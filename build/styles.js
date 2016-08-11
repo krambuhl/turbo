@@ -11,7 +11,7 @@ const autoprefix = require('autoprefixer');
 const { paths, globs } = require('./config');
 
 function compileStyles() {
-  return gulp.src(path.join(paths.src.root, globs.css))
+  return gulp.src(path.join(paths.src.root, '*.css'))
     .pipe(postcss([
       cssimport(),
       nested(),

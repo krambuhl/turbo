@@ -5,5 +5,7 @@
 }
 
 .l-index-contents {
-
+  .heading {
+    max-width: 16em;
+  }
 }
