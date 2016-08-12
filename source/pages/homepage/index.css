@@ -1,10 +1,10 @@
-.l-index-header {
+.l-homepage-header {
   background-color: color(purple-dark);
   color: color(teal);
   text-align: center;
 }
 
-.l-index-contents {
+.l-homepage-contents {
   .heading {
   	max-width: breakpoint(medium-small);
   }
@@ -14,12 +14,12 @@
   }
 }
 
-.l-index-pricing {
+.l-homepage-pricing {
 	background-image: linear-gradient(to bottom, color(teal), color(teal-light));
 }
 
 
-.l-index-moose {
+.l-homepage-moose {
   background-color: color(purple-mid);
   color: color(light);
 
@@ -38,7 +38,7 @@
 }
 
 @media (min-width: breakpoint(medium-large)) {
-  .l-index-pricing {
+  .l-homepage-pricing {
     .card__contents {
       min-height: 20em;
     }
