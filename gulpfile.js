@@ -1,24 +1,34 @@
 const gulp = require('gulp');
 
 // Clean
-const clean = require('./build/clean');
+const clean = require('turbo-components/build/clean');
 
 // Styles
-const styles = require('./build/styles');
+const { compileStyles, watchStyles } = require('./build/styles');
+
+// Templates
+const { compileTemplates, watchTemplates } = require('./build/templates');
 
 // Render pages to html
-const pages = require('./build/pages');
+const { compilePages, watchPages } = require('./build/pages');
 
+// Watch External Dependencies
+const { watchExternal } = require('./build/external');
+
+gulp.task('clean', clean);
 
 gulp.task('build', gulp.series(
   clean,
   gulp.parallel(
-    styles.compileStyles,
-    pages.compilePages
-  )
+    compileStyles,
+    compileTemplates
+  ),
+	compilePages
 ));
 
 gulp.task('watch', gulp.parallel(
-  styles.watchStyles,
-  pages.watchPages
+  watchStyles,
+  watchTemplates,
+  watchExternal,
+  watchPages
 ));

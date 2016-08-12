@@ -2,20 +2,78 @@
   {{#component "atom/strata--banner" addClass="l-index-header"}}
     {{#component "atom/wrapper"}}
       {{#component "atom/heading--h1"}}Turbo{{/component}}
+      <br><br>
+      {{#component "atom/button--cta" href="#pricing"}}view pricing{{/component}}
     {{/component}}
   {{/component}}
 
-  {{#component "atom/strata" addClass="l-index-content"}}
-    {{#component "atom/wrapper" addClass="rhythm"}}
-      {{#component "atom/heading--h2"}}Look! This &nbsp;Turbo &nbsp;thing solves a &nbsp;problem, ok...{{/component}}
+  {{#component "atom/strata" addClass="l-index-contents"}}
+    {{#component "atom/wrapper" addClass="rhythm-large"}}
+      {{#component "atom/heading--h2"}}Look! This&nbsp; Turbo&nbsp; thing solves a&nbsp; problem, ok...{{/component}}
+      
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboreu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.  proident, sunt in culpa qui officia deserunt mollit.</p>
 
-      {{#component "atom/heading--h2"}}There’s even a list of &nbsp;the things it does{{/component}}
-      {{#component "atom/list" type="unordered"}}
+      {{#component "atom/heading--h2"}}There’s even a list of&nbsp; the things it does{{/component}}
+      
+      {{#component "atom/list" type="unordered" addClass="rhythm-small"}}
         {{#component "atom/list__item"}}Excepteur sint occaecat cupidatat{{/component}}
         {{#component "atom/list__item"}}Labore et dolore magna aliqua{{/component}}
         {{#component "atom/list__item"}}Laboris nisi ut aliquip ex ea commodo{{/component}}
         {{#component "atom/list__item"}}Reprehenderit in voluptate velit esse{{/component}}
+      {{/component}}
+
+      {{#component "atom/heading--h2"}}What?!&nbsp; You let other people influence you!{{/component}}
+
+      {{#component "atom/card-grid" addClass="card-grid--two"}}
+        {{#component "molecule/blockquote-card" cite="Harold Floyd Sr."}}
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias voluptatem accusamus, minus odio quis. </p>
+        {{/component}}
+
+        {{#component "molecule/blockquote-card" cite="Harold Floyd Jr."}}
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit exercitationem, excepturi asperiores reprehenderit sequi! </p>
+        {{/component}}
+
+        {{#component "molecule/blockquote-card" cite="Harold Floyd III"}}
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias voluptatem accusamus, minus odio quis. </p>
+        {{/component}}
+
+        {{#component "molecule/blockquote-card" cite="Marge Floyd"}}
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias voluptatem accusamus, minus odio quis.</p>
+        {{/component}}
+      {{/component}}
+    {{/component}}
+  {{/component}}
+
+  {{#component "atom/strata" addClass="l-index-pricing" id="pricing"}}
+    {{#component "atom/wrapper" addClass="rhythm-large"}}
+      {{!-- {{#component "atom/heading--h2"}}Get your&nbsp; boss&nbsp; to expense it{{/component}} --}}
+      
+      {{#component "atom/card-grid" addClass="card-grid--three"}}
+        {{#component "molecule/product" title="Ant Bundle" cost="$3" href="#/"}}
+          {{#component "atom/list" type="unordered" addClass="list--outside rhythm-small"}}
+            {{#component "atom/list__item"}}2 users{{/component}}
+            {{#component "atom/list__item"}}Okay feature{{/component}}
+          {{/component}}
+        {{/component}}
+
+        {{#component "molecule/product" title="Owl Bundle" cost="$7" href="#/"}}
+          {{#component "atom/list" type="unordered" addClass="list--outside rhythm-small"}}
+            {{#component "atom/list__item"}}5 users{{/component}}
+            {{#component "atom/list__item"}}Okay feature{{/component}}
+            {{#component "atom/list__item"}}Good feature{{/component}}
+            {{#component "atom/list__item"}}Good feature{{/component}}
+          {{/component}}
+        {{/component}}
+
+        {{#component "molecule/product" title="Moose Bundle" cost="$10" href="#/"}}
+          {{#component "atom/list" type="unordered" addClass="list--outside rhythm-small"}}
+            {{#component "atom/list__item"}}10 users{{/component}}
+            {{#component "atom/list__item"}}Okay feature{{/component}}
+            {{#component "atom/list__item"}}Good feature{{/component}}
+            {{#component "atom/list__item"}}Good feature{{/component}}
+            {{#component "atom/list__item"}}Great feature{{/component}}
+          {{/component}}
+        {{/component}}
       {{/component}}
     {{/component}}
   {{/component}}

@@ -5,5 +5,23 @@
 }
 
 .l-index-contents {
+  .heading {
+  	max-width: breakpoint(medium-small);
+  }
+  
+  .card {
+  	background-color: color(offlight);
+  }
+}
 
+.l-index-pricing {
+	background-image: linear-gradient(to bottom, color(teal), color(teal-light));
+}
+
+@media (min-width: breakpoint(medium-large)) {
+  .l-index-pricing {
+    .card__contents {
+      min-height: 20em;
+    }
+  }
 }

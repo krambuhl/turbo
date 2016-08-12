@@ -3,27 +3,35 @@ const path = require('path');
 const Handlebars = require('handlebars');
 
 const through = require('through2');
-const helpers = require('turbo-components/dist/helpers');
-const templates = require('turbo-components/dist/templates');
-
-Handlebars.registerPartial(templates);
-
-Object.keys(helpers).forEach(name => {
-  const helper = helpers[name];
-  if (helper.register) {
-    helper.register(Handlebars);
-  } else {
-    Handlebars.registerHelper(name, helper);
-  }
-});
 
 const {
   paths,
   globs
 } = require('./config');
 
-const renderTemplate = opts => 
-  through.obj(function(file, enc, done) {
+const registerTurbo = () => {
+  delete require.cache['turbo-components'];
+  delete require.cache['turbo-components/dist/helpers'];
+  delete require.cache['turbo-components/dist/templates'];
+
+  const helpers = require('turbo-components/dist/helpers');
+  const templates = require('turbo-components/dist/templates');
+
+  Handlebars.registerPartial(templates);
+
+  Object.keys(helpers).forEach(name => {
+    const helper = helpers[name];
+    if (helper.register) {
+      helper.register(Handlebars);
+    } else {
+      Handlebars.registerHelper(name, helper);
+    }
+  });
+}
+
+const renderTemplate = opts => {
+  registerTurbo();
+  return through.obj(function(file, enc, done) {
     const template = Handlebars.compile(file.contents.toString());
 
     file.contents = new Buffer(template({}));
@@ -31,6 +39,7 @@ const renderTemplate = opts =>
 
     done(null, file);
   });
+}
 
 function compilePages() {
   return gulp.src(path.join(paths.src.pages, globs.hbs))
