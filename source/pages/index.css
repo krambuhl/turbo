@@ -18,6 +18,25 @@
 	background-image: linear-gradient(to bottom, color(teal), color(teal-light));
 }
 
+
+.l-index-moose {
+  background-color: color(purple-mid);
+  color: color(light);
+
+  .product__label {
+    color: color(purple-dark);
+  }
+
+  .button {
+    background-color: color(light);
+    color: color(dark);
+
+    &:hover {
+      background-color: color(offlight);
+    }
+  }
+}
+
 @media (min-width: breakpoint(medium-large)) {
   .l-index-pricing {
     .card__contents {

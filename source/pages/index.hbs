@@ -1,8 +1,7 @@
 {{#component "organism/global-wrapper" pageTitle="Turbo" addClass="l-index"}}
   {{#component "atom/strata--banner" addClass="l-index-header"}}
-    {{#component "atom/wrapper"}}
+    {{#component "atom/wrapper" addClass="rhythm"}}
       {{#component "atom/heading--h1"}}Turbo{{/component}}
-      <br><br>
       {{#component "atom/button--cta" href="#pricing"}}view pricing{{/component}}
     {{/component}}
   {{/component}}
@@ -59,19 +58,19 @@
         {{#component "molecule/product" title="Owl Bundle" cost="$7" href="#/"}}
           {{#component "atom/list" type="unordered" addClass="list--outside rhythm-small"}}
             {{#component "atom/list__item"}}5 users{{/component}}
+            {{#component "atom/list__item"}}Great feature{{/component}}
+            {{#component "atom/list__item"}}Good feature{{/component}}
             {{#component "atom/list__item"}}Okay feature{{/component}}
-            {{#component "atom/list__item"}}Good feature{{/component}}
-            {{#component "atom/list__item"}}Good feature{{/component}}
           {{/component}}
         {{/component}}
 
-        {{#component "molecule/product" title="Moose Bundle" cost="$10" href="#/"}}
+        {{#component "molecule/product" addClass="l-index-moose" title="Moose Bundle" cost="$10" href="#/"}}
           {{#component "atom/list" type="unordered" addClass="list--outside rhythm-small"}}
             {{#component "atom/list__item"}}10 users{{/component}}
-            {{#component "atom/list__item"}}Okay feature{{/component}}
-            {{#component "atom/list__item"}}Good feature{{/component}}
-            {{#component "atom/list__item"}}Good feature{{/component}}
+            {{#component "atom/list__item"}}Super feature{{/component}}
             {{#component "atom/list__item"}}Great feature{{/component}}
+            {{#component "atom/list__item"}}Good feature{{/component}}
+            {{#component "atom/list__item"}}Okay feature{{/component}}
           {{/component}}
         {{/component}}
       {{/component}}
