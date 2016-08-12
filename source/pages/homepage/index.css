@@ -1,0 +1,46 @@
+.l-homepage-header {
+  background-color: color(purple-dark);
+  color: color(teal);
+  text-align: center;
+}
+
+.l-homepage-contents {
+  .heading {
+  	max-width: breakpoint(medium-small);
+  }
+  
+  .card {
+  	background-color: color(offlight);
+  }
+}
+
+.l-homepage-pricing {
+	background-image: linear-gradient(to bottom, color(teal), color(teal-light));
+}
+
+
+.l-homepage-moose {
+  background-color: color(purple-mid);
+  color: color(light);
+
+  .product__label {
+    color: color(purple-dark);
+  }
+
+  .button {
+    background-color: color(light);
+    color: color(dark);
+
+    &:hover {
+      background-color: color(offlight);
+    }
+  }
+}
+
+@media (min-width: breakpoint(medium-large)) {
+  .l-homepage-pricing {
+    .card__contents {
+      min-height: 20em;
+    }
+  }
+}
