@@ -28,11 +28,12 @@
   }
 
   .button {
-    background-color: color(light);
-    color: color(dark);
+    border-color: color(light);
+    color: color(light);
 
     &:hover {
-      background-color: color(offlight);
+      background-color: color(light);
+      color: color(dark);
     }
   }
 }
