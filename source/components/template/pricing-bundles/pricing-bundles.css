@@ -1,0 +1,7 @@
+@media (min-width: breakpoint(medium-large)) {
+  .pricing-bundles {
+    .card__contents {
+      min-height: 20em;
+    }
+  }
+}

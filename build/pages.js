@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const path = require('path');
+const match = require('minimatch');
 const Handlebars = require('handlebars');
 
 const through = require('through2');
@@ -9,28 +10,19 @@ const {
   globs
 } = require('./config');
 
-const registerTurbo = () => {
-  delete require.cache['turbo-components'];
-  delete require.cache['turbo-components/dist/helpers'];
-  delete require.cache['turbo-components/dist/templates'];
-
-  const helpers = require('turbo-components/dist/helpers');
-  const templates = require('turbo-components/dist/templates');
-
-  Handlebars.registerPartial(templates);
-
-  Object.keys(helpers).forEach(name => {
-    const helper = helpers[name];
-    if (helper.register) {
-      helper.register(Handlebars);
-    } else {
-      Handlebars.registerHelper(name, helper);
-    }
-  });
-}
+const clearCache = () => {
+  // force re-require without cache :(
+  Object.keys(require.cache)
+    .filter(key => 
+      match(key, '**/turbo-components/dist/**/*') ||
+      match(key, '**/turbo/dist/**/*')
+    )
+    .forEach(key => {
+      delete require.cache[key];
+    });
+};
 
 const renderTemplate = opts => {
-  registerTurbo();
   return through.obj(function(file, enc, done) {
     const template = Handlebars.compile(file.contents.toString());
 
@@ -39,13 +31,44 @@ const renderTemplate = opts => {
 
     done(null, file);
   });
+};
+
+function recacheTemplates(done) {
+  clearCache();
+
+  // YUCK!
+  // 100ms seems to be the right amount of time
+  // to wait for the cache to actually clear
+  setTimeout(() => registerComponents(done), 100);
 }
 
-function compilePages() {
+function registerComponents(done) {
+  const componentHelpers = require('turbo-components/dist/helpers');
+  const componentTemplates = require('turbo-components/dist/templates');
+  const projectTemplates = require('../dist/templates');
+
+  Handlebars.registerPartial(componentTemplates);
+  Handlebars.registerPartial(projectTemplates);
+
+  Object.keys(componentHelpers).forEach(name => {
+    const helper = componentHelpers[name];
+    if (helper.register) {
+      helper.register(Handlebars);
+    } else {
+      Handlebars.registerHelper(name, helper);
+    }
+  });
+
+  setTimeout(() => done(), 5);
+}
+
+function renderPages() {
   return gulp.src(path.join(paths.src.pages, globs.hbs))
     .pipe(renderTemplate())
     .pipe(gulp.dest(paths.dest.root));
 }
+
+const compilePages = gulp.series(recacheTemplates, renderPages);
 
 function watchPages() {
   gulp.watch(path.join(paths.src.components, globs.hbs), compilePages);
@@ -53,6 +76,7 @@ function watchPages() {
 }
 
 module.exports = {
+  recacheTemplates,
   compilePages,
   watchPages
 };

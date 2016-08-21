@@ -7,7 +7,7 @@
     "build": "gulp build",
     "watch": "gulp watch",
     "develop": "npm run build && npm run watch",
-    "start": "http-server ./dist -p 8080"
+    "start": "browser-sync start -s dist -f dist --port 8080"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
+    "browser-sync": "^2.14.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-define-module": "^0.1.4",
     "gulp-file": "^0.3.0",
@@ -28,14 +29,14 @@
     "gulp-postcss": "^6.1.1",
     "gulp-wrap": "^0.13.0",
     "handlebars": "^4.0.5",
-    "handlebars-helper-partial": "^0.2.0",
-    "handlebars-wax": "^4.0.0",
     "http-server": "^0.9.0",
     "lodash": "^4.14.2",
+    "minimatch": "^3.0.3",
     "postcss-css-variables": "^0.5.1",
     "postcss-functions": "^2.1.0",
     "postcss-import": "^8.1.2",
     "postcss-nested": "^1.0.0",
+    "postcss-sassy-import": "^1.2.3",
     "resolve": "^1.1.7",
     "rimraf": "^2.5.4",
     "through2": "^2.0.1"

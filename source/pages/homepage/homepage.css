@@ -1,0 +1,21 @@
+.l-homepage__header {
+  background-color: color(purple-dark);
+  color: color(teal);
+  text-align: center;
+}
+
+
+.l-homepage__contents {
+  .heading {
+  	max-width: breakpoint(medium-small);
+  }
+  
+  .card {
+  	background-color: color(offlight);
+  }
+}
+
+
+.l-homepage__pricing {
+	background-image: linear-gradient(to bottom, color(teal), color(teal-light));
+}

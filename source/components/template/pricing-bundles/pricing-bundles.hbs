@@ -1,0 +1,31 @@
+{{#component "atom/strata" id=id addClass=(joinSpace "pricing-bundles" addClass)}}
+  {{#component "atom/wrapper" addClass="rhythm-large"}}      
+    {{#component "atom/card-grid" addClass="card-grid--three"}}
+      {{#component "molecule/product" title="Ant Bundle" cost="$3" href="#/"}}
+        {{#component "atom/list" type="unordered" addClass="list--outside rhythm-small"}}
+          {{#component "atom/list__item"}}2 users{{/component}}
+          {{#component "atom/list__item"}}Okay feature{{/component}}
+        {{/component}}
+      {{/component}}
+
+      {{#component "molecule/product" title="Owl Bundle" cost="$7" href="#/"}}
+        {{#component "atom/list" type="unordered" addClass="list--outside rhythm-small"}}
+          {{#component "atom/list__item"}}5 users{{/component}}
+          {{#component "atom/list__item"}}Great feature{{/component}}
+          {{#component "atom/list__item"}}Good feature{{/component}}
+          {{#component "atom/list__item"}}Okay feature{{/component}}
+        {{/component}}
+      {{/component}}
+
+      {{#component "molecule/product--highlight" title="Moose Bundle" cost="$10" href="#/"}}
+        {{#component "atom/list" type="unordered" addClass="list--outside rhythm-small"}}
+          {{#component "atom/list__item"}}10 users{{/component}}
+          {{#component "atom/list__item"}}Super feature{{/component}}
+          {{#component "atom/list__item"}}Great feature{{/component}}
+          {{#component "atom/list__item"}}Good feature{{/component}}
+          {{#component "atom/list__item"}}Okay feature{{/component}}
+        {{/component}}
+      {{/component}}
+    {{/component}}
+  {{/component}}
+{{/component}}

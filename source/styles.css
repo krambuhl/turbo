@@ -1,3 +1,4 @@
-@import "turbo-components";
-@import "pages/index";
-@import "pages/homepage";
+@import "turbo-components" !not-sassy;
+
+@import "components/**/*.css";
+@import "pages/**/*.css";

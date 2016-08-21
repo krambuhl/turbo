@@ -1,11 +1,9 @@
-.l-index-header {
+.l-index__header {
   background-color: color(purple-dark);
   color: color(teal);
   text-align: center;
 }
 
-.l-index-contents {
-  .heading {
-    max-width: 16em;
-  }
+.l-index__content {
+  
 }
